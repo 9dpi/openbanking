@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Nhân Viên | Quantix Open Banking</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .profile-hero {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 160px;
+            box-sizing: border-box;
+        }
+
+        .profile-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(225deg, rgba(37, 99, 235, 0.05) 0%, transparent 100%);
+            z-index: 0;
+        }
+
+        .hero-avatar-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--quantix-accent);
+        }
+
+        .status-badge-online {
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            width: 18px;
+            height: 18px;
+            background: var(--status-success);
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+
+        .hero-details {
+            z-index: 1;
+        }
+
+        .hero-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-role {
+            font-size: 0.9rem;
+            color: var(--quantix-accent);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .info-section {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--bg-base);
+            padding-bottom: 0.75rem;
+        }
+
+        .details-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .detail-label {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .detail-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .performance-card {
+            background: var(--quantix-accent);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            min-height: 160px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .perf-header {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .perf-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .perf-desc {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--bg-base);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin: 0 4px 6px 0;
+        }
+
+        .activity-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .activity-item {
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--bg-base);
+            position: relative;
+        }
+
+        .activity-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--border-subtle);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .activity-item.active::before {
+            background: var(--quantix-accent);
+        }
+
+        .activity-time {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .activity-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .filter-pill {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            cursor: pointer;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.2s;
+        }
+
+        .filter-pill.active {
+            background: var(--quantix-accent);
+            color: white;
+            border-color: var(--quantix-accent);
+        }
+
+        .filter-pill:hover:not(.active) {
+            background: var(--border-subtle);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-strip">
+        <div class="brand-zone">
+            <div style="background: var(--quantix-accent); padding: 6px; border-radius: 6px; color: white;">
+                <i data-lucide="building-2" size="20"></i>
+            </div>
+            <div class="brand-name">
+                <span class="name-prefix">QUANTIX</span>
+                <span class="name-suffix">OPEN BANKING</span>
+            </div>
+            <span class="powered-by">TRUNG TÂM VẬN HÀNH NỘI BỘ v4.2</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Trung Tâm Điều Hành</a>
+            <a href="trangthai_hethong.html" class="nav-link">Trạng Thái Hệ Thống</a>
+            <a href="hosonhanvien.html" class="nav-link active">Hồ Sơ Nhân Viên</a>
+        </div>
+    </header>
+
+    <!-- Main App -->
+    <main class="app-shell">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="balance-card">
+                <div class="balance-label">
+                    <span>Thanh Khoản Tổng Hợp</span>
+                    <div class="status-dot"></div>
+                </div>
+                <div class="balance-amount">58,120,400 USD</div>
+
+                <div class="asset-list">
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-usd">$</div>
+                            <span class="asset-name">USD Balance</span>
+                        </div>
+                        <span class="asset-value">42,850,920</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-vnd">₫</div>
+                            <span class="asset-name">VNĐ Account</span>
+                        </div>
+                        <span class="asset-value">385.2B</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-gold">Au</div>
+                            <span class="asset-name">Gold Reserve</span>
+                        </div>
+                        <span class="asset-value">1,240 oz</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-btc">₿</div>
+                            <span class="asset-name">Bitcoin (BTC)</span>
+                        </div>
+                        <span class="asset-value">14.5 BTC</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top: 1.2rem; font-size: 0.75rem; color: var(--status-success); font-weight: 600; display:flex; gap:6px; align-items:center; border-top: 1px dashed var(--border-subtle); padding-top: 10px;">
+                    <i data-lucide="trending-up" size="14"></i>
+                    +8.2% danh mục tổng hợp
+                </div>
+            </div>
+
+            <div
+                style="font-size: 0.7rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase;">
+                Điều Hướng Nghiệp Vụ
+            </div>
+
+            <a href="index.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="layout-dashboard" size="18"></i>
+                <span>Tổng Quan Hệ Thống</span>
+            </a>
+            <a href="khachhang_360.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="users" size="18"></i>
+                <span>Khách Hàng 360</span>
+            </a>
+            <a href="thanhtoan_quocte.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="globe" size="18"></i>
+                <span>Thanh Toán Quốc Tế & CBDC</span>
+            </a>
+            <a href="regtech_tuanthu.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="shield-check" size="18"></i>
+                <span>RegTech & Tuân Thủ</span>
+            </a>
+
+            <div class="ai-panel">
+                <div class="ai-header">
+                    <i data-lucide="bot" size="14"></i>
+                    TRẠNG THÁI AI AGENTS
+                </div>
+                <div class="agent-row">
+                    <div class="agent-status" style="background:var(--quantix-purple)"></div>
+                    <span style="font-weight:600">AI Giám Sát</span>
+                    <span style="margin-left:auto; font-size:0.7rem; color:var(--text-secondary)">Đang quét</span>
+                </div>
+                <div class="agent-row">
+                    <div class="agent-status" style="background:var(--quantix-accent)"></div>
+                    <span style="font-weight:600">AI Tư Vấn</span>
+                    <span style="margin-left:auto; font-size:0.7rem; color:var(--text-secondary)">Sẵn sàng</span>
+                </div>
+                <div class="agent-row">
+                    <div class="agent-status" style="background:var(--status-danger)"></div>
+                    <span style="font-weight:600">AI Kiểm Toán</span>
+                    <span style="margin-left:auto; font-size:0.7rem; color:var(--text-secondary)">Ghi log</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Viewport -->
+        <section class="viewport scrollable">
+            <div class="profile-container">
+                <div class="profile-grid">
+
+                    <!-- MAIN COLUMN: Left/Center -->
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <!-- Hero Section -->
+                        <div class="profile-hero">
+                            <div class="hero-avatar-wrapper">
+                                <div class="hero-avatar">C</div>
+                                <div class="status-badge-online" title="Online"></div>
+                            </div>
+                            <div class="hero-details">
+                                <h1 class="hero-name">Vũ Quang Cường</h1>
+                                <div class="hero-role">
+                                    <i data-lucide="shield-check" size="18"></i>
+                                    Quản trị viên Hệ thống Cấp cao
+                                </div>
+                                <div class="hero-meta">
+                                    <div class="meta-item"><i data-lucide="map-pin" size="14"></i> Trụ sở chính, Hà Nội
+                                    </div>
+                                    <div class="meta-item"><i data-lucide="mail" size="14"></i> cuongvq@open.bank</div>
+                                </div>
+                            </div>
+                            <div style="margin-left: auto;">
+                                <button class="action-btn">
+                                    <i data-lucide="edit" size="14"></i> Chỉnh sửa
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Activity Log Section -->
+                        <div class="info-section">
+                            <div class="section-title" style="justify-content: space-between;">
+                                <div style="display:flex; align-items:center; gap:10px;">
+                                    <i data-lucide="history" size="18"></i> Nhật Ký Hoạt Động Hệ Thống
+                                </div>
+                                <div style="display:flex; gap:8px;">
+                                    <span class="filter-pill active">Tất cả</span>
+                                    <span class="filter-pill">Giao dịch</span>
+                                    <span class="filter-pill">Cấu hình</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-timeline">
+                                <div class="activity-item active">
+                                    <div class="activity-time">Hôm nay, 11:15:22</div>
+                                    <div class="activity-text">Phê duyệt Giao dịch Ngoại lệ (Cross-border)</div>
+                                    <div
+                                        style="margin-top: 8px; font-size: 0.8rem; color: var(--text-secondary); background: var(--bg-card); padding: 8px 12px; border-radius: 6px; border-left: 3px solid var(--status-success);">
+                                        <strong>Mã GD:</strong> TX-99210-CB | <strong>Giá trị:</strong> 2,450,000 USD |
+                                        <strong>Đối tác:</strong> Standard Chartered
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-time">Hôm nay, 09:42:05</div>
+                                    <div class="activity-text">Điều chỉnh ngưỡng Cảnh báo AI (Threshold Change)</div>
+                                    <div
+                                        style="margin-top: 8px; font-size: 0.8rem; color: var(--text-secondary); display:flex; gap:15px;">
+                                        <span>Agent: <strong>FraudGuard</strong></span>
+                                        <span>Old: <strong>0.82</strong></span>
+                                        <span>New: <strong>0.85</strong></span>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-time">Sáng nay, 08:30:11</div>
+                                    <div class="activity-text">Đăng nhập Hệ thống Điều hành v4.2</div>
+                                    <div style="margin-top: 4px; font-size: 0.8rem; color: var(--text-secondary);">IP:
+                                        192.168.1.45 (VP Trụ sở chính) | Device: Workstation-QX01</div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-time">Hôm qua, 16:45:00</div>
+                                    <div class="activity-text">Ký duyệt Báo cáo CAR (Capital Adequacy Ratio)</div>
+                                    <div
+                                        style="margin-top: 8px; font-size: 0.8rem; color: var(--text-secondary); background: var(--bg-card); padding: 8px 12px; border-radius: 6px; display:flex; align-items:center; gap:8px;">
+                                        <i data-lucide="file-check" size="14" style="color:var(--quantix-purple)"></i>
+                                        <span>Báo cáo CAR_JAN_2026.pdf đã được gửi tới Ngân hàng Nhà nước.</span>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-time">Hôm qua, 14:20:15</div>
+                                    <div class="activity-text">Review Cảnh báo Danh sách Cấm vận (Sanction List Hit)
+                                    </div>
+                                    <div
+                                        style="margin-top: 4px; font-size: 0.8rem; color: var(--text-danger); font-weight:600;">
+                                        Kết luận: False Positive | Đối tượng: Nguyễn Văn X (Trùng tên, khác ngày sinh)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="action-btn secondary"
+                                style="width:100%; margin-top:2rem; justify-content:center; padding:12px;">
+                                <i data-lucide="history" size="14"></i> Tải thêm lịch sử hoạt động
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT COLUMN: Stats + Info -->
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <!-- Performance Card -->
+                        <div class="performance-card">
+                            <div class="perf-header">Điểm Hiệu Suất (Q1 2026)</div>
+                            <div class="perf-value">98/100</div>
+                            <div class="perf-desc">Vượt 12% so với chỉ tiêu KPI trung tâm.</div>
+                        </div>
+
+                        <!-- Basic Info Section -->
+                        <div class="info-section">
+                            <div class="section-title">
+                                <i data-lucide="user" size="18"></i> Thông tin cơ bản
+                            </div>
+                            <div class="details-list">
+                                <div class="detail-item">
+                                    <div class="detail-label">Mã nhân viên</div>
+                                    <div class="detail-value">QX-00129</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Phòng ban</div>
+                                    <div class="detail-value" style="font-size:0.8rem;">Trung tâm Vận hành & Công nghệ
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Cấp bậc</div>
+                                    <div class="detail-value">Associate Director</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Số điện thoại</div>
+                                    <div class="detail-value">+84 912 345 678</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Agents -->
+                        <div class="info-section">
+                            <div class="section-title">
+                                <i data-lucide="cpu" size="18"></i> AI Agents Quản Lý
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="option-card" style="margin:0; padding: 10px;">
+                                    <div class="option-icon"><i data-lucide="shield-alert" size="16"></i></div>
+                                    <div style="font-weight:700; font-size:0.8rem;">FraudGuard Agent</div>
+                                </div>
+                                <div class="option-card" style="margin:0; padding: 10px;">
+                                    <div class="option-icon"><i data-lucide="activity" size="16"></i></div>
+                                    <div style="font-weight:700; font-size:0.8rem;">OpsController</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills (Hidden as requested) -->
+                        <!-- 
+                        <div class="info-section">
+                            <div class="section-title">
+                                <i data-lucide="award" size="18"></i> Kỹ năng chính
+                            </div>
+                            <div>
+                                <span class="skill-tag">AML Analysis</span>
+                                <span class="skill-tag">ISO 20022</span>
+                                <span class="skill-tag">CBDC Mgmt</span>
+                                <span class="skill-tag">Risk Control</span>
+                            </div>
+                        </div>
+                         -->
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

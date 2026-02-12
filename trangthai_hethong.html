@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạng Thái Hệ Thống | Quantix Open Banking</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .status-card {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .status-card .label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .status-card .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .log-container {
+            background: white;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 350px);
+            min-height: 500px;
+        }
+
+        .log-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--bg-base);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .log-table th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            background: var(--bg-base);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+        }
+
+        .log-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--bg-base);
+            font-size: 0.85rem;
+            vertical-align: middle;
+        }
+
+        .log-row:hover {
+            background: rgba(37, 99, 235, 0.02);
+        }
+
+        .level-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .level-info {
+            background: #E0F2FE;
+            color: #0369A1;
+        }
+
+        .level-success {
+            background: #DCFCE7;
+            color: #15803D;
+        }
+
+        .level-warning {
+            background: #FEF3C7;
+            color: #B45309;
+        }
+
+        .level-error {
+            background: #FEE2E2;
+            color: #B91C1C;
+        }
+
+        .service-tag {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-card);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border-subtle);
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-strip">
+        <div class="brand-zone">
+            <div style="background: var(--quantix-accent); padding: 6px; border-radius: 6px; color: white;">
+                <i data-lucide="building-2" size="20"></i>
+            </div>
+            <div class="brand-name">
+                <span class="name-prefix">QUANTIX</span>
+                <span class="name-suffix">OPEN BANKING</span>
+            </div>
+            <span class="powered-by">TRUNG TÂM VẬN HÀNH NỘI BỘ v4.2</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Trung Tâm Điều Hành</a>
+            <a href="trangthai_hethong.html" class="nav-link active">Trạng Thái Hệ Thống</a>
+            <a href="hosonhanvien.html" class="nav-link">Hồ Sơ Nhân Viên</a>
+        </div>
+    </header>
+
+    <!-- Main App -->
+    <main class="app-shell">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="balance-card">
+                <div class="balance-label">
+                    <span>Hệ thống</span>
+                    <div class="status-dot"></div>
+                </div>
+                <div class="balance-amount" style="font-size: 2rem;">98.2%</div>
+                <div
+                    style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; opacity: 0.9;">
+                    Công suất thực thi</div>
+
+                <!-- Capacity Sparkline (Matching Reference Image Style) -->
+                <div style="height: 42px; margin-bottom: 20px; position: relative;">
+                    <svg viewBox="0 0 120 30" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                        <defs>
+                            <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#00BAFF" stop-opacity="0.3" />
+                                <stop offset="100%" stop-color="#00BAFF" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Area Fill -->
+                        <path d="M0 5 L15 25 L55 25 L70 5 L85 25 L120 25 L120 30 L0 30 Z" fill="url(#chartGradient)" />
+                        <!-- Line Stroke with Neon Glow -->
+                        <path d="M0 5 L15 25 L55 25 L70 5 L85 25 L120 25" fill="none" stroke="#00BAFF"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                            style="filter: drop-shadow(0 0 4px #00BAFF)" />
+                    </svg>
+                </div>
+
+                <div class="asset-list">
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box"
+                                style="background: rgba(37, 99, 235, 0.1); color: var(--quantix-accent);">
+                                <i data-lucide="cpu" size="14"></i>
+                            </div>
+                            <span class="asset-name">CPU Cluster</span>
+                        </div>
+                        <span class="asset-value">24%</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box"
+                                style="background: rgba(168, 85, 247, 0.1); color: var(--quantix-purple);">
+                                <i data-lucide="database" size="14"></i>
+                            </div>
+                            <span class="asset-name">RAM Usage</span>
+                        </div>
+                        <span class="asset-value">14.2GB</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box"
+                                style="background: rgba(34, 197, 94, 0.1); color: var(--status-success);">
+                                <i data-lucide="hard-drive" size="14"></i>
+                            </div>
+                            <span class="asset-name">Storage</span>
+                        </div>
+                        <span class="asset-value">1.2TB OK</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top: 1.2rem; font-size: 0.75rem; color: var(--status-success); font-weight: 600; display:flex; gap:6px; align-items:center; border-top: 1px dashed var(--border-subtle); padding-top: 10px;">
+                    <i data-lucide="activity" size="14"></i>
+                    Tính sẵn sàng: 99.999%
+                </div>
+            </div>
+
+            <div
+                style="font-size: 0.7rem; font-weight: 800; color: var(--text-secondary); margin: 20px 0 10px; text-transform: uppercase;">
+                Điều Hướng Nghiệp Vụ
+            </div>
+
+            <a href="index.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="layout-dashboard" size="18"></i>
+                <span>Tổng Quan Hệ Thống</span>
+            </a>
+            <a href="khachhang_360.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="users" size="18"></i>
+                <span>Khách Hàng 360</span>
+            </a>
+            <a href="thanhtoan_quocte.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="globe" size="18"></i>
+                <span>Thanh Toán Quốc Tế & CBDC</span>
+            </a>
+            <a href="regtech_tuanthu.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="shield-check" size="18"></i>
+                <span>RegTech & Tuân Thủ</span>
+            </a>
+
+            <div class="ai-panel">
+                <div class="ai-header">
+                    <i data-lucide="bot" size="14"></i>
+                    TRẠNG THÁI AI AGENTS
+                </div>
+                <div class="agent-row">
+                    <div class="agent-status" style="background:var(--quantix-accent)"></div>
+                    <span style="font-weight:600">AI Core Active</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Viewport -->
+        <section class="viewport scrollable">
+            <div class="status-grid">
+                <div class="status-card">
+                    <div class="label">API Gateway</div>
+                    <div class="value">99.98%</div>
+                    <div class="status-indicator">
+                        <div class="indicator-dot" style="background:var(--status-success)"></div>
+                        <span style="color:var(--status-success)">Hoạt động ổn định</span>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="label">Blockchain Node</div>
+                    <div class="value">12 ms</div>
+                    <div class="status-indicator">
+                        <div class="indicator-dot" style="background:var(--status-success)"></div>
+                        <span style="color:var(--status-success)">Độ trễ thấp</span>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="label">AI reasoning</div>
+                    <div class="value">840 req/s</div>
+                    <div class="status-indicator">
+                        <div class="indicator-dot" style="background:var(--status-warning)"></div>
+                        <span style="color:var(--status-warning)">Tải cao</span>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="label">Hệ thống Core</div>
+                    <div class="value">UPTIME 42D</div>
+                    <div class="status-indicator">
+                        <div class="indicator-dot" style="background:var(--status-success)"></div>
+                        <span style="color:var(--status-success)">Không có lỗi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="log-container">
+                <div class="log-header">
+                    <div style="display:flex; align-items:center; gap:12px;">
+                        <h2 style="font-size:1.1rem; font-weight:800; margin:0;">Nhật Ký Quản Lý Hệ Thống</h2>
+                        <span class="service-tag">Real-time Feed</span>
+                    </div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="action-btn secondary"><i data-lucide="download" size="14"></i> Xuất Log</button>
+                        <button class="action-btn"><i data-lucide="filter" size="14"></i> Lọc dữ liệu</button>
+                    </div>
+                </div>
+                <div style="overflow-y: auto;">
+                    <table class="log-table">
+                        <thead>
+                            <tr>
+                                <th>Thời gian</th>
+                                <th>Mức độ</th>
+                                <th>Dịch vụ</th>
+                                <th>Hành động / Thông điệp</th>
+                                <th>Người thực hiện</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="log-row">
+                                <td style="color:var(--text-secondary); font-family:monospace;">11:42:05</td>
+                                <td><span class="level-badge level-success">Success</span></td>
+                                <td><span class="service-tag">AUTH-SRV</span></td>
+                                <td>Cấp mới Token định danh cho <strong>Agent-QX01</strong></td>
+                                <td style="font-weight:600;">System Auto</td>
+                            </tr>
+                            <tr class="log-row">
+                                <td style="color:var(--text-secondary); font-family:monospace;">11:40:12</td>
+                                <td><span class="level-badge level-info">Info</span></td>
+                                <td><span class="service-tag">CBDC-NODE</span></td>
+                                <td>Bắt đầu đối soát block #9,210,145</td>
+                                <td style="font-weight:600;">System Auto</td>
+                            </tr>
+                            <tr class="log-row">
+                                <td style="color:var(--text-secondary); font-family:monospace;">11:38:55</td>
+                                <td><span class="level-badge level-warning">Warning</span></td>
+                                <td><span class="service-tag">AI-ENGINE</span></td>
+                                <td>Ngưỡng bộ nhớ vượt 85% - Bắt đầu dọn dẹp cache</td>
+                                <td style="font-weight:600;">System Auto</td>
+                            </tr>
+                            <tr class="log-row">
+                                <td style="color:var(--text-secondary); font-family:monospace;">11:35:00</td>
+                                <td><span class="level-badge level-info">Info</span></td>
+                                <td><span class="service-tag">CONFIG</span></td>
+                                <td>Cập nhật tham số email nhân viên: <strong>cuongvq@open.bank</strong></td>
+                                <td style="font-weight:600;">Vũ Quang Cường</td>
+                            </tr>
+                            <tr class="log-row">
+                                <td style="color:var(--text-secondary); font-family:monospace;">11:30:22</td>
+                                <td><span class="level-badge level-error">Error</span></td>
+                                <td><span class="service-tag">SWIFT-GATE</span></td>
+                                <td>Kết nối Timeout tới đối tác Standard Chartered (Retry 1/3)</td>
+                                <td style="font-weight:600;">System Auto</td>
+                            </tr>
+                            <tr class="log-row">
+                                <td style="color:var(--text-secondary); font-family:monospace;">11:25:15</td>
+                                <td><span class="level-badge level-success">Success</span></td>
+                                <td><span class="service-tag">SECURITY</span></td>
+                                <td>Quét lỗ hổng định kỳ - Hoàn tất 100% (No threats)</td>
+                                <td style="font-weight:600;">AI Guard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

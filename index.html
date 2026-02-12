@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantix Open Banking | Trung Tâm Vận Hành Nội Bộ</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-strip">
+        <div class="brand-zone">
+            <div style="background: var(--quantix-accent); padding: 6px; border-radius: 6px; color: white;">
+                <i data-lucide="building-2" size="20"></i>
+            </div>
+            <div class="brand-name">
+                <span class="name-prefix">QUANTIX</span>
+                <span class="name-suffix">OPEN BANKING</span>
+            </div>
+            <span class="powered-by">TRUNG TÂM VẬN HÀNH NỘI BỘ v4.2</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Trung Tâm Điều Hành</a>
+            <a href="trangthai_hethong.html" class="nav-link">Trạng Thái Hệ Thống</a>
+            <a href="hosonhanvien.html" class="nav-link">Hồ Sơ Nhân Viên</a>
+        </div>
+    </header>
+
+    <!-- Main App -->
+    <main class="app-shell">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="balance-card">
+                <div class="balance-label">
+                    <span>Thanh Khoản Tổng Hợp</span>
+                    <div class="status-dot"></div>
+                </div>
+                <div class="balance-amount" id="main-balance">58,120,400 USD</div>
+
+                <div class="asset-list">
+                    <!-- USD Row -->
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-usd">$</div>
+                            <span class="asset-name">USD Balance</span>
+                        </div>
+                        <span class="asset-value">42,850,920</span>
+                    </div>
+                    <!-- VNĐ Row -->
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-vnd">₫</div>
+                            <span class="asset-name">VNĐ Account</span>
+                        </div>
+                        <span class="asset-value">385.2B</span>
+                    </div>
+                    <!-- Gold Row -->
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-gold">Au</div>
+                            <span class="asset-name">Gold Reserve</span>
+                        </div>
+                        <span class="asset-value">1,240 oz</span>
+                    </div>
+                    <!-- Bitcoin Row -->
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-btc">₿</div>
+                            <span class="asset-name">Bitcoin (BTC)</span>
+                        </div>
+                        <span class="asset-value">14.5 BTC</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top: 1.2rem; font-size: 0.75rem; color: var(--status-success); font-weight: 600; display:flex; gap:6px; align-items:center; border-top: 1px dashed var(--border-subtle); padding-top: 10px;">
+                    <i data-lucide="trending-up" size="14"></i>
+                    +8.2% danh mục tổng hợp
+                </div>
+            </div>
+
+            <div
+                style="font-size: 0.7rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase;">
+                Điều Hướng Nghiệp Vụ
+            </div>
+
+            <a href="index.html" class="side-nav-item active" style="text-decoration:none;">
+                <i data-lucide="layout-dashboard" size="18"></i>
+                <span>Tổng Quan Hệ Thống</span>
+            </a>
+            <a href="khachhang_360.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="users" size="18"></i>
+                <span>Khách Hàng 360</span>
+            </a>
+            <a href="thanhtoan_quocte.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="globe" size="18"></i>
+                <span>Thanh Toán Quốc Tế & CBDC</span>
+            </a>
+            <a href="regtech_tuanthu.html" class="side-nav-item" style="text-decoration:none;">
+                <i data-lucide="shield-check" size="18"></i>
+                <span>RegTech & Tuân Thủ</span>
+            </a>
+
+            <div class="ai-panel">
+                <div class="ai-header">
+                    <i data-lucide="bot" size="14"></i>
+                    TRẠNG THÁI AI AGENTS
+                </div>
+                <div class="agent-row">
+                    <div class="agent-status" style="background:var(--quantix-purple)"></div>
+                    <span style="font-weight:600">AI Giám Sát</span>
+                    <span style="margin-left:auto; font-size:0.7rem; color:var(--text-secondary)">Đang quét</span>
+                </div>
+                <div class="agent-row">
+                    <div class="agent-status" style="background:var(--quantix-accent)"></div>
+                    <span style="font-weight:600">AI Tư Vấn</span>
+                    <span style="margin-left:auto; font-size:0.7rem; color:var(--text-secondary)">Sẵn sàng</span>
+                </div>
+                <div class="agent-row">
+                    <div class="agent-status" style="background:var(--status-danger)"></div>
+                    <span style="font-weight:600">AI Kiểm Toán</span>
+                    <span style="margin-left:auto; font-size:0.7rem; color:var(--text-secondary)">Ghi log</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Viewport -->
+        <section class="viewport">
+            <!-- Secondary Navigation -->
+            <div class="sub-tabs">
+                <div style="display:flex;">
+                    <div class="tab-btn active" onclick="switchTab('live', this)">
+                        Luồng Giao Dịch
+                        <span
+                            style="background:rgba(220, 38, 38, 0.1); color:var(--status-danger); padding:2px 6px; border-radius:4px; font-size:0.65rem; margin-left:8px; border:1px solid rgba(220,38,38,0.2);">LIVE</span>
+                    </div>
+                    <div class="tab-btn" onclick="switchTab('audit', this)">Kiểm Toán & Báo Cáo</div>
+                    <div class="tab-btn" onclick="switchTab('logs', this)" title="Nhật Ký Hệ Thống">
+                        <i data-lucide="terminal-square" size="20"></i>
+                    </div>
+                    <div class="tab-btn" title="Thêm Mới View" onclick="openCreateViewDrawer()">
+                        <i data-lucide="plus-square" size="20"></i>
+                    </div>
+                </div>
+
+                <div style="display:flex; gap: 10px;">
+                    <button class="action-btn secondary">
+                        <i data-lucide="download" size="14"></i> Xuất Báo Cáo
+                    </button>
+                    <button class="action-btn">
+                        <i data-lucide="shield-alert" size="14"></i> Can Thiệp Thủ Công
+                    </button>
+                </div>
+            </div>
+
+            <div class="workspace-grid">
+
+                <!-- TAB 1: Live Operations -->
+                <div id="tab-live" class="tab-content active">
+                    <div class="table-container">
+                        <!-- Table Header Controls -->
+                        <div
+                            style="padding: 1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-subtle); background:white;">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <h3 style="margin:0; font-size:0.9rem; font-weight:700;">Dữ Liệu Thời Gian Thực</h3>
+                                <div style="width:1px; height:16px; background:var(--border-subtle);"></div>
+                                <div style="display:flex; gap:4px;">
+                                    <span class="filter-pill active">Tất cả</span>
+                                    <span class="filter-pill">Cá nhân</span>
+                                    <span class="filter-pill">Tổ chức</span>
+                                    <span class="filter-pill">Nội bộ</span>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex; align-items:center; gap:6px; font-size:0.7rem; color:var(--text-secondary);">
+                                <div class="status-dot animate-pulse"></div>
+                                <span id="tps-meter">Tốc độ xử lý: 0 TPS</span>
+                            </div>
+                        </div>
+
+                        <!-- Table Scroller -->
+                        <div style="flex:1; overflow-y:auto;">
+                            <table id="ops-table">
+                                <thead>
+                                    <tr>
+                                        <th width="10%">Mã GD</th>
+                                        <th width="18%">Khách Hàng / Loại</th>
+                                        <th width="12%">Vai Trò</th>
+                                        <th width="16%">AI AGENT / XỬ LÝ</th>
+                                        <th width="16%">Loại Nghiệp Vụ</th>
+                                        <th width="14%">Giá Trị</th>
+                                        <th width="14%" style="text-align:right">Trạng Thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bank-ops-feed">
+                                    <!-- JS Generated -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div
+                            style="padding: 0.5rem 1.5rem; border-top:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; color:var(--text-secondary); background:#f8fafc;">
+                            <span>Trang 1 / 42</span>
+                            <div style="display:flex; gap:8px;">
+                                <span style="cursor:pointer">Trước</span>
+                                <span style="font-weight:600; color:var(--text-primary);">1</span>
+                                <span style="cursor:pointer">Sau</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: System Logs -->
+                <div id="tab-logs" class="tab-content">
+                    <div class="console-view" id="system-console">
+                        <!-- JS injected logs -->
+                    </div>
+                </div>
+
+                <!-- TAB 3: Audit & Reports -->
+                <div id="tab-audit" class="tab-content">
+                    <div class="audit-summary">
+                        <div class="info-card">
+                            <div class="balance-label">Compliance Score</div>
+                            <div class="card-num" style="color:var(--status-success)">98.2/100</div>
+                            <div class="card-sub">Đạt chuẩn quốc tế ISO 20022</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="balance-label">Cảnh Báo Gian Lận (24h)</div>
+                            <div class="card-num" style="color:var(--status-danger)">14</div>
+                            <div class="card-sub">Trường hợp cần review thủ công</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="balance-label">Báo Cáo Đã Tạo</div>
+                            <div class="card-num">1,240</div>
+                            <div class="card-sub">Tự động gửi NHNN</div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div
+                            style="padding: 1rem 1.5rem; border-bottom:1px solid var(--border-subtle); font-weight:700; font-size:0.9rem;">
+                            Báo Cáo Hoạt Động Đáng Ngờ (SAR) - Chờ Xử Lý
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Thời Gian</th>
+                                    <th>Đối Tượng</th>
+                                    <th>Loại Vi Phạm</th>
+                                    <th>Độ Nghiêm Trọng</th>
+                                    <th>AI Agent Phát Hiện</th>
+                                    <th style="text-align:right">Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10:42:15</td>
+                                    <td>Tập đoàn Beta</td>
+                                    <td>Phân tán tài sản (Structuring)</td>
+                                    <td><span class="pill flagged">CAO</span></td>
+                                    <td>FraudGuard</td>
+                                    <td style="text-align:right"><button class="action-btn secondary"
+                                            style="padding:4px 8px; font-size:0.7rem;">Review</button></td>
+                                </tr>
+                                <tr>
+                                    <td>09:15:22</td>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>Truy cập IP lạ (Foreign IP)</td>
+                                    <td><span class="pill review">TRUNG BÌNH</span></td>
+                                    <td>OpsController</td>
+                                    <td style="text-align:right"><button class="action-btn secondary"
+                                            style="padding:4px 8px; font-size:0.7rem;">Review</button></td>
+                                </tr>
+                                <tr>
+                                    <td>08:55:01</td>
+                                    <td>Công ty XNK Alpha</td>
+                                    <td>Giao dịch vượt hạn mức</td>
+                                    <td><span class="pill review">TRUNG BÌNH</span></td>
+                                    <td>RegTechBot</td>
+                                    <td style="text-align:right"><button class="action-btn secondary"
+                                            style="padding:4px 8px; font-size:0.7rem;">Review</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- SLIDE DRAWER CONTAINER -->
+    <div class="drawer-overlay" id="drawer-bk" onclick="closeDrawer()"></div>
+    <div class="drawer-panel" id="drawer-pnl">
+        <div class="drawer-header">
+            <div class="drawer-title" id="drawer-title">Tiêu Đề</div>
+            <div class="close-btn" onclick="closeDrawer()">
+                <i data-lucide="x" size="24"></i>
+            </div>
+        </div>
+
+        <!-- MODE 1: CREATE VIEW LIST (Default for Plus Icon) -->
+        <div class="drawer-content view-mode" id="mode-create-list">
+            <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:1rem; font-weight:600;">CHỌN LOẠI
+                DỮ LIỆU HIỂN THỊ</div>
+            <!-- Dynamic Options here or static -->
+            <div class="option-card" onclick="showCreateDetail('Luồng Giao Dịch Live', 'Quản lý monitoring & logging')">
+                <div class="option-icon"><i data-lucide="activity" size="20"></i></div>
+                <div>
+                    <div style="font-weight:700; font-size:0.9rem;">Luồng Giao Dịch Live</div>
+                    <div style="font-size:0.75rem; color:var(--text-secondary);">Theo dõi real-time payment log</div>
+                </div>
+            </div>
+            <div class="option-card" onclick="showCreateDetail('Kiểm Soát Rủi Ro', 'Phân tích gian lận & AML')">
+                <div class="option-icon"><i data-lucide="shield-check" size="20"></i></div>
+                <div>
+                    <div style="font-weight:700; font-size:0.9rem;">Kiểm Soát Rủi Ro</div>
+                    <div style="font-size:0.75rem; color:var(--text-secondary);">Phát hiện gian lận và AML dashboard
+                    </div>
+                </div>
+            </div>
+            <div class="option-card" onclick="showCreateDetail('Phân Khúc Khách Hàng', 'Marketing & Sales Analytics')">
+                <div class="option-icon"><i data-lucide="users" size="20"></i></div>
+                <div>
+                    <div style="font-weight:700; font-size:0.9rem;">Phân Khúc Khách Hàng</div>
+                    <div style="font-size:0.75rem; color:var(--text-secondary);">Heatmap hoạt động của user</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODE 2: CREATE VIEW DETAIL (Step 2 of Plus Icon) -->
+        <div class="drawer-content view-mode" id="mode-create-detail">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:1rem; cursor:pointer;"
+                onclick="openCreateViewDrawer()">
+                <i data-lucide="arrow-left" size="16"></i>
+                <span style="font-size:0.8rem; font-weight:600;">Quay lại danh sách</span>
+            </div>
+            <h2 id="create-detail-title" style="margin:0 0 4px 0;">Title</h2>
+            <p id="create-detail-desc" style="margin:0 0 20px 0; color:var(--text-secondary); font-size:0.85rem;">Desc
+            </p>
+
+            <div style="padding:1rem; background:#f8fafc; border-radius:8px; border:1px solid var(--border-subtle);">
+                <div
+                    style="font-size:0.75rem; font-weight:800; color:var(--text-secondary); margin-bottom:10px; text-transform:uppercase;">
+                    Gán AI Agent Mặc Định
+                </div>
+                <!-- Logic Reuse Agent List -->
+                <div id="mode-create-agent-list" class="agent-list"></div>
+            </div>
+            <button class="action-btn" style="width:100%; margin-top:20px; justify-content:center; padding:12px;">Xác
+                Nhận & Tạo View</button>
+        </div>
+
+        <!-- MODE 3: TRANSACTION DETAIL (Click on Table Row) -->
+        <div class="drawer-content view-mode" id="mode-tx-detail">
+            <div class="tx-card-header">
+                <div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:4px;">Giá trị giao dịch
+                    </div>
+                    <div class="tx-amount-hero" id="tx-detail-amount">0 đ</div>
+                </div>
+                <div id="tx-detail-status"></div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <div class="tx-meta-row">
+                    <span class="tx-meta-label">Mã tham chiếu (Ref ID)</span>
+                    <span class="tx-meta-val" id="tx-detail-id">TX-000000</span>
+                </div>
+                <div class="tx-meta-row">
+                    <span class="tx-meta-label">Thời gian</span>
+                    <span class="tx-meta-val" id="tx-detail-time">--:--:--</span>
+                </div>
+                <div class="tx-meta-row">
+                    <span class="tx-meta-label">Khách hàng</span>
+                    <span class="tx-meta-val" id="tx-detail-customer">Name</span>
+                </div>
+                <div class="tx-meta-row">
+                    <span class="tx-meta-label">Loại nghiệp vụ</span>
+                    <span class="tx-meta-val" id="tx-detail-type">Type</span>
+                </div>
+            </div>
+
+            <div
+                style="padding:1.5rem; background:#fff; border-radius:8px; border:1px solid var(--border-subtle); box-shadow:0 2px 4px rgba(0,0,0,0.02);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <div
+                        style="font-size:0.75rem; font-weight:800; color:var(--text-secondary); text-transform:uppercase;">
+                        AI Agent Đang Xử Lý
+                    </div>
+                </div>
+
+                <div id="tx-current-agent-display"
+                    style="display:flex; align-items:center; gap:10px; padding-bottom:15px; border-bottom:1px solid var(--border-subtle); margin-bottom:15px;">
+                    <!-- Dynamic populated -->
+                </div>
+
+                <div
+                    style="font-size:0.75rem; font-weight:800; color:var(--text-secondary); margin-bottom:10px; text-transform:uppercase;">
+                    Thay đổi / Điều phối Agent
+                </div>
+                <div id="mode-tx-agent-list" class="agent-list">
+                    <!-- Dynamic -->
+                </div>
+            </div>
+            <button class="action-btn" style="width:100%; margin-top:20px; justify-content:center; padding:12px;">Cập
+                Nhật Trạng Thái</button>
+        </div>
+    </div>
+
+    <!-- Scripting for Bank Ops Simulation -->
+    <script>
+        // INTERNAL OPS DATA
+        const systemData = {
+            liquidity: 42850920.00,
+            transactions: [], // Will store full objects here
+            currentPage: 1,
+            itemsPerPage: 10
+        };
+
+        // --- DRAWER CONTROLLER ---
+        function closeDrawer() {
+            document.getElementById('drawer-bk').classList.remove('open');
+            document.getElementById('drawer-pnl').classList.remove('open');
+        }
+
+        function openDrawerCommon(title) {
+            document.getElementById('drawer-title').innerText = title;
+            document.getElementById('drawer-bk').classList.add('open');
+            document.getElementById('drawer-pnl').classList.add('open');
+
+            // Hide all modes first
+            document.querySelectorAll('.view-mode').forEach(el => el.classList.remove('active'));
+        }
+
+        // 1. Open Create View List
+        function openCreateViewDrawer() {
+            openDrawerCommon('Tạo Bảng Điều Khiển Mới');
+            document.getElementById('mode-create-list').classList.add('active');
+        }
+
+        // 2. Open Create View Detail
+        function showCreateDetail(title, desc) {
+            document.querySelectorAll('.view-mode').forEach(el => el.classList.remove('active'));
+            document.getElementById('mode-create-detail').classList.add('active');
+
+            document.getElementById('create-detail-title').innerText = title;
+            document.getElementById('create-detail-desc').innerText = desc;
+
+            renderAgentList('mode-create-agent-list', 'Quantix Core Overseer');
+        }
+
+        // 3. Open Transaction Detail
+        function openTransactionDetail(idx) {
+            const tx = systemData.transactions[idx];
+            if (!tx) return;
+
+            openDrawerCommon('Chi Tiết Giao Dịch');
+            document.getElementById('mode-tx-detail').classList.add('active');
+
+            // Populate Data
+            document.getElementById('tx-detail-amount').innerText = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(tx.amount);
+            document.getElementById('tx-detail-id').innerText = 'TX-' + tx.id;
+            document.getElementById('tx-detail-time').innerText = new Date(tx.time).toLocaleTimeString('vi-VN');
+            document.getElementById('tx-detail-customer').innerText = tx.customer.name + ' (' + tx.customer.type + ')';
+            document.getElementById('tx-detail-type').innerText = tx.op;
+
+            const msgStatus = `<span class="pill ${tx.statusClass}" style="font-size:0.9rem; padding:6px 14px;">${tx.status}</span>`;
+            document.getElementById('tx-detail-status').innerHTML = msgStatus;
+
+            // Current Agent Display
+            const currentAgent = tx.customer.agent; // e.g. FraudGuard
+            let iconColor = 'var(--text-secondary)';
+            if (currentAgent === 'FraudGuard') iconColor = 'var(--status-danger)';
+            if (currentAgent === 'RoboAdvisor') iconColor = 'var(--status-success)';
+
+            document.getElementById('tx-current-agent-display').innerHTML = `
+                 <i data-lucide="bot" size="24" style="color:${iconColor}"></i>
+                 <div>
+                    <div style="font-weight:700; font-size:0.95rem;">${currentAgent}</div>
+                    <div style="font-size:0.75rem; color:var(--text-secondary);">Đang giám sát quy trình này</div>
+                 </div>
+            `;
+
+            // Render Agent List Selection
+            renderAgentList('mode-tx-agent-list', currentAgent);
+            lucide.createIcons();
+        }
+
+        // Helper: Agent List Rendering
+        function renderAgentList(containerId, selectedAgentName) {
+            const agents = [
+                { id: 'Quantix Core', name: 'Quantix Core Overseer', color: 'var(--quantix-purple)', icon: 'bot' },
+                { id: 'FraudGuard', name: 'FraudGuard (Rủi ro)', color: 'var(--status-danger)', icon: 'shield-check' },
+                { id: 'RoboAdvisor', name: 'RoboAdvisor (Đầu tư)', color: 'var(--status-success)', icon: 'trending-up' },
+                { id: 'RegTechBot', name: 'RegTechBot (Tuân thủ)', color: 'var(--status-warning)', icon: 'file-search' },
+                { id: 'OpsController', name: 'OpsController (Vận hành)', color: 'var(--quantix-accent)', icon: 'settings' }
+            ];
+
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+
+            agents.forEach(a => {
+                const isSelected = (selectedAgentName && a.name.includes(selectedAgentName)) || (a.id === selectedAgentName);
+
+                const div = document.createElement('div');
+                div.className = `agent-item ${isSelected ? 'selected' : ''}`;
+                div.onclick = function () {
+                    // Simple radio toggle UI logic
+                    container.querySelectorAll('.agent-item').forEach(el => el.classList.remove('selected'));
+                    this.classList.add('selected');
+                };
+
+                div.innerHTML = `
+                     <i data-lucide="${a.icon}" size="16" style="color:${a.color}"></i>
+                    <span style="font-weight:600;">${a.name}</span>
+                    <div class="agent-check"></div>
+                `;
+                container.appendChild(div);
+            });
+            lucide.createIcons();
+        }
+
+        // Tab Switching
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            document.getElementById('tab-' + tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // BẢN ĐỒ KHÁCH HÀNG & AI AGENT (Mapping)
+        const customerMap = [
+            // 1. Khách hàng Cá nhân
+            {
+                name: 'Nguyễn Văn A', type: 'Cá nhân', group: 'EndUser', role: 'Uỷ thác',
+                agent: 'RoboAdvisor', action: 'Tự động đầu tư'
+            },
+            {
+                name: 'Trần Thị B', type: 'Cá nhân', group: 'EndUser', role: 'Đồng hành',
+                agent: 'WealthBot', action: 'Gợi ý tiết kiệm'
+            },
+
+            // 2. Khách hàng Doanh nghiệp
+            {
+                name: 'Công ty XNK Alpha', type: 'Doanh nghiệp', group: 'Corporate', role: 'Kiểm soát',
+                agent: 'CashFlowOpt', action: 'Dự báo dòng tiền'
+            },
+            {
+                name: 'Tập đoàn Beta', type: 'Doanh nghiệp', group: 'Corporate', role: 'Phê duyệt',
+                agent: 'FraudGuard', action: 'Phát hiện rủi ro'
+            },
+
+            // 3. Định chế Tài chính
+            {
+                name: 'Dragon Capital', type: 'Định chế', group: 'Institution', role: 'Thực thi',
+                agent: 'AlgoTrader', action: 'Khớp lệnh HFT'
+            },
+            {
+                name: 'VinaCapital', type: 'Định chế', group: 'Institution', role: 'Dữ liệu',
+                agent: 'DataOracle', action: 'Xác thực tín hiệu'
+            },
+
+            // 4. Fintech Đối tác / Nền tảng
+            {
+                name: 'Grab Financial', type: 'Đối tác', group: 'Platform', role: 'Nhúng',
+                agent: 'CreditScorer', action: 'Chấm điểm tín dụng'
+            },
+            {
+                name: 'Momo', type: 'Đối tác', group: 'Platform', role: 'Cổng TT',
+                agent: 'TransRouter', action: 'Định tuyến GD'
+            },
+
+            // 5. Cơ quan Quản lý (Nhà nước)
+            {
+                name: 'Ngân hàng Nhà nước', type: 'Cơ quan', group: 'Regulator', role: 'Giám sát',
+                agent: 'RegTechBot', action: 'Báo cáo STR'
+            },
+            {
+                name: 'Cục Thuế', type: 'Cơ quan', group: 'Regulator', role: 'Audit',
+                agent: 'AuditTrace', action: 'Truy xuất nguồn tiền'
+            },
+
+            // 6. Nhà phát triển (Builder)
+            {
+                name: 'Dev @ Zalopay', type: 'Developer', group: 'Builder', role: 'Sandbox',
+                agent: 'SandboxSim', action: 'Test tải API'
+            },
+
+            // 7. Nội bộ Vận hành
+            {
+                name: 'Trưởng nhóm Rủi ro', type: 'Nội bộ', group: 'Internal', role: 'Override',
+                agent: 'OpsController', action: 'Chặn giao dịch'
+            },
+
+            // 8. Thị trường & Hạ tầng
+            {
+                name: 'Sở Giao dịch (HOSE)', type: 'Hạ tầng', group: 'Market', role: 'Thanh khoản',
+                agent: 'LiqProvider', action: 'Đối soát cuối ngày'
+            }
+        ];
+
+        const opsTypes = [
+            'Chuyển tiền quốc tế', 'Thanh toán hoá đơn', 'Mua trái phiếu',
+            'Giải ngân khoản vay', 'Quyết toán thuế', 'API Call (Tần suất cao)',
+            'Báo cáo tự động', 'Kiểm tra Compliance'
+        ];
+
+        // Init
+        initBankOps();
+
+        function initBankOps() {
+            lucide.createIcons();
+
+            // Pre-fill history for Ops Table
+            for (let i = 0; i < 15; i++) {
+                systemData.transactions.push(generateOpsTransaction(true));
+            }
+            renderOpsTable();
+
+            // Generate System Logs
+            generateFakeLogs();
+
+            // Loops
+            setInterval(() => {
+                document.getElementById('tps-meter').innerText = `Tốc độ xử lý: ${Math.floor(Math.random() * 50 + 200)} TPS`;
+            }, 1000);
+        }
+
+        function generateFakeLogs() {
+            const logs = [
+                { lvl: 'INFO', srv: 'AuthService', msg: 'User session verified for ID: 9921' },
+                { lvl: 'INFO', srv: 'CoreBank', msg: 'Batch process started for EOD reconciliation' },
+                { lvl: 'WARN', srv: 'APIGateway', msg: 'Latency spike detected in region: VN-South (120ms)' },
+                { lvl: 'INFO', srv: 'DataOracle', msg: 'Market data feed subscribed: VNI-Index' },
+                { lvl: 'ERR', srv: 'PaymentGW', msg: 'Timeout waiting for Partner ACK: Momo_Endpt' },
+                { lvl: 'INFO', srv: 'RegTechBot', msg: 'Daily Compliance Report generated successfully' },
+                { lvl: 'INFO', srv: 'OpsController', msg: 'Manual override request queued for TX-8821' },
+                { lvl: 'INFO', srv: 'AuditTrace', msg: 'Immutable ledger hash committed: 0x9a2f...11b' }
+            ];
+
+            const consoleEl = document.getElementById('system-console');
+            logs.forEach(l => {
+                const div = document.createElement('div');
+                div.className = 'log-line';
+                const time = new Date().toISOString();
+                div.innerHTML = `
+                    <span class="log-ts">${time}</span>
+                    <span class="log-lvl ${l.lvl}">${l.lvl}</span>
+                    <span class="log-srv">${l.srv}</span>
+                    <span class="log-txt">${l.msg}</span>
+                `;
+                consoleEl.appendChild(div);
+            });
+        }
+
+        function generateOpsTransaction(isHistory = false) {
+            const customer = customerMap[Math.floor(Math.random() * customerMap.length)];
+
+            // Logic hành vi theo nhóm
+            let op = opsTypes[Math.floor(Math.random() * opsTypes.length)];
+            let amount = (Math.random() * 50000000) + 1000000;
+
+            if (customer.group === 'Regulator') {
+                op = 'Báo cáo Tuân thủ';
+                amount = 0;
+            }
+            if (customer.group === 'Builder') {
+                op = 'Sandbox Test';
+                amount = 1000;
+            }
+            if (customer.group === 'Corporate' || customer.group === 'Institution') {
+                amount *= 100; // Big Money
+            }
+
+            // Trạng thái (Lifecycle Orchestrator)
+            let status = 'HOÀN TẤT';
+            let statusClass = 'cleared';
+
+            if (customer.role.includes('Phê duyệt') || customer.role.includes('Override')) {
+                status = 'CHỜ DUYỆT';
+                statusClass = 'review';
+            }
+            if (customer.action.includes('Chặn') || customer.action.includes('Phát hiện')) {
+                status = 'CẢNH BÁO';
+                statusClass = 'flagged';
+            }
+            if (customer.group === 'Regulator') {
+                status = 'ĐÃ GHI LOG';
+                statusClass = 'audit';
+            }
+
+            const date = new Date();
+            if (isHistory) date.setMinutes(date.getMinutes() - Math.floor(Math.random() * 200));
+
+            return {
+                id: (Math.random() * 100000000).toFixed(0).padStart(8, '0'),
+                time: date,
+                customer: customer,
+                op: op,
+                amount: amount,
+                status: status,
+                statusClass: statusClass
+            };
+        }
+
+        function renderOpsTable() {
+            const tbody = document.getElementById('bank-ops-feed');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            systemData.transactions.forEach((t, index) => {
+                const tr = document.createElement('tr');
+                tr.className = 'clickable-row';
+                // Pass the index to open details
+                tr.onclick = function () { openTransactionDetail(index); };
+
+                // Color Codes
+                let roleColor = '#64748b';
+                let roleBg = '#f1f5f9';
+
+                if (t.customer.group === 'EndUser') { roleColor = '#2563eb'; roleBg = 'rgba(37, 99, 235, 0.1)'; }
+                if (t.customer.group === 'Corporate') { roleColor = '#7c3aed'; roleBg = 'rgba(124, 58, 237, 0.1)'; }
+                if (t.customer.group === 'Regulator') { roleColor = '#059669'; roleBg = 'rgba(5, 150, 105, 0.1)'; }
+                if (t.customer.group === 'Internal') { roleColor = '#dc2626'; roleBg = 'rgba(220, 38, 38, 0.1)'; }
+
+                // Agent Icon Selection
+                let agentIcon = 'bot';
+                if (t.customer.agent === 'FraudGuard') agentIcon = 'shield-alert';
+                if (t.customer.agent === 'AuditTrace') agentIcon = 'file-search';
+                if (t.customer.agent === 'TransRouter') agentIcon = 'git-merge';
+
+                tr.innerHTML = `
+                    <td style="font-family:var(--font-mono); color:var(--text-secondary);">TX-${t.id}</td>
+                    <td>
+                        <div style="display:flex; flex-direction:column;">
+                            <span style="font-weight:600; font-size:0.85rem;">${t.customer.name}</span>
+                            <span style="font-size:0.7rem; color:var(--text-secondary);">${t.customer.type}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span style="background:${roleBg}; color:${roleColor}; padding:2px 8px; border-radius:4px; font-weight:700; font-size:0.65rem;">
+                            ${t.customer.role}
+                        </span>
+                    </td>
+                    <td>
+                        <div style="display:flex; flex-direction:column;">
+                            <span style="font-weight:700; font-size:0.75rem; color:var(--quantix-purple); display:flex; align-items:center; gap:4px;">
+                                <i data-lucide="${agentIcon}" size="10"></i> ${t.customer.agent}
+                            </span>
+                            <span style="font-size:0.7rem; color:var(--text-secondary);">${t.customer.action}</span>
+                        </div>
+                    </td>
+                    <td style="font-size:0.8rem;">${t.op}</td>
+                    <td style="font-family:var(--font-mono); font-weight:700;">
+                        ${t.amount > 0 ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(t.amount) : '-'}
+                    </td>
+                    <td style="text-align:right">
+                        <span class="pill ${t.statusClass}">
+                            ${t.status}
+                        </span>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>

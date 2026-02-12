@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegTech & Tuân Thủ | Quantix Open Banking</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header-strip">
+        <div class="brand-zone">
+            <div style="background: var(--quantix-accent); padding: 6px; border-radius: 6px; color: white;">
+                <i data-lucide="building-2" size="20"></i>
+            </div>
+            <div class="brand-name"><span class="name-prefix">QUANTIX</span><span class="name-suffix">OPEN
+                    BANKING</span></div>
+            <span class="powered-by">TRUNG TÂM VẬN HÀNH NỘI BỘ v4.2</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Trung Tâm Điều Hành</a>
+            <a href="trangthai_hethong.html" class="nav-link">Trạng Thái Hệ Thống</a>
+            <a href="hosonhanvien.html" class="nav-link">Hồ Sơ Nhân Viên</a>
+        </div>
+    </header>
+
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="balance-card">
+                <div class="balance-label">
+                    <span>Thanh Khoản Tổng Hợp</span>
+                    <div class="status-dot"></div>
+                </div>
+                <div class="balance-amount">58,120,400 USD</div>
+
+                <div class="asset-list">
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-usd">$</div>
+                            <span class="asset-name">USD Balance</span>
+                        </div>
+                        <span class="asset-value">42,850,920</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-vnd">₫</div>
+                            <span class="asset-name">VNĐ Account</span>
+                        </div>
+                        <span class="asset-value">385.2B</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-gold">Au</div>
+                            <span class="asset-name">Gold Reserve</span>
+                        </div>
+                        <span class="asset-value">1,240 oz</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-btc">₿</div>
+                            <span class="asset-name">Bitcoin (BTC)</span>
+                        </div>
+                        <span class="asset-value">14.5 BTC</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top: 1.2rem; font-size: 0.75rem; color: var(--status-success); font-weight: 600; display:flex; gap:6px; align-items:center; border-top: 1px dashed var(--border-subtle); padding-top: 10px;">
+                    <i data-lucide="trending-up" size="14"></i>
+                    +8.2% danh mục tổng hợp
+                </div>
+            </div>
+
+            <div
+                style="font-size: 0.7rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase;">
+                Điều Hướng Nghiệp Vụ</div>
+            <a href="index.html" class="side-nav-item"><i data-lucide="layout-dashboard" size="18"></i><span>Tổng Quan
+                    Hệ Thống</span></a>
+            <a href="khachhang_360.html" class="side-nav-item"><i data-lucide="users" size="18"></i><span>Khách Hàng
+                    360</span></a>
+            <a href="thanhtoan_quocte.html" class="side-nav-item"><i data-lucide="globe" size="18"></i><span>Thanh Toán
+                    Quốc Tế & CBDC</span></a>
+            <a href="regtech_tuanthu.html" class="side-nav-item active"><i data-lucide="shield-check"
+                    size="18"></i><span>RegTech & Tuân Thủ</span></a>
+        </aside>
+
+        <section class="viewport scrollable">
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <div class="kpi-val" style="color:var(--status-success)">99.8%</div>
+                    <div class="kpi-lbl">KYC Pass Rate</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-val" style="color:var(--status-danger)">14</div>
+                    <div class="kpi-lbl">AML Alerts (Open)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-val">12/12</div>
+                    <div class="kpi-lbl">Reports Submitted</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-val" style="color:var(--quantix-purple)">A+</div>
+                    <div class="kpi-lbl">Audit Rating</div>
+                </div>
+            </div>
+
+            <div class="report-grid">
+                <!-- Reporting Status -->
+                <div class="report-section">
+                    <div class="section-head">Tiến Độ Báo Cáo Cơ Quan Quản Lý (NHNN)</div>
+                    <div class="report-item">
+                        <div>
+                            <div style="font-weight:600;">Báo Cáo Tỷ Lệ An Toàn Vốn (CAR)</div>
+                            <div style="font-size:0.75rem; color:var(--text-secondary);">Kỳ báo cáo: Tháng 2/2026</div>
+                        </div>
+                        <span class="report-status status-sent">ĐÃ GỬI</span>
+                    </div>
+                    <div class="report-item">
+                        <div>
+                            <div style="font-weight:600;">Báo Cáo Giao Dịch Đáng Ngờ (STR)</div>
+                            <div style="font-size:0.75rem; color:var(--text-secondary);">Batch #STR-2291</div>
+                        </div>
+                        <span class="report-status status-sent">ĐÃ GỬI</span>
+                    </div>
+                    <div class="report-item">
+                        <div>
+                            <div style="font-weight:600;">Báo Cáo Dư Nợ Tín Dụng</div>
+                            <div style="font-size:0.75rem; color:var(--text-secondary);">Kỳ: Tuần 1 - T2</div>
+                        </div>
+                        <span class="report-status status-pend">ĐANG XỬ LÝ</span>
+                    </div>
+                </div>
+
+                <!-- Daily Checklist -->
+                <div class="report-section">
+                    <div class="section-head">Daily Compliance Checklist</div>
+                    <div class="checklist">
+                        <div class="check-item">
+                            <div class="check-box"><i data-lucide="check" size="14"></i></div>
+                            <span>Review danh sách cấm vận mới</span>
+                        </div>
+                        <div class="check-item">
+                            <div class="check-box"><i data-lucide="check" size="14"></i></div>
+                            <span>Kiểm tra e-KYC logs thất bại</span>
+                        </div>
+                        <div class="check-item" style="opacity:0.5">
+                            <div class="check-box" style="border-color:var(--border-subtle); color:transparent;"></div>
+                            <span>Phê duyệt ngoại lệ GD > 10 Tỷ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

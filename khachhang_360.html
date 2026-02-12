@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách Hàng 360 | Quantix Open Banking</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header-strip">
+        <div class="brand-zone">
+            <div style="background: var(--quantix-accent); padding: 6px; border-radius: 6px; color: white;">
+                <i data-lucide="building-2" size="20"></i>
+            </div>
+            <div class="brand-name"><span class="name-prefix">QUANTIX</span><span class="name-suffix">OPEN
+                    BANKING</span></div>
+            <span class="powered-by">TRUNG TÂM VẬN HÀNH NỘI BỘ v4.2</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Trung Tâm Điều Hành</a>
+            <a href="trangthai_hethong.html" class="nav-link">Trạng Thái Hệ Thống</a>
+            <a href="hosonhanvien.html" class="nav-link">Hồ Sơ Nhân Viên</a>
+        </div>
+    </header>
+
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="balance-card">
+                <div class="balance-label">
+                    <span>Thanh Khoản Tổng Hợp</span>
+                    <div class="status-dot"></div>
+                </div>
+                <div class="balance-amount">58,120,400 USD</div>
+
+                <div class="asset-list">
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-usd">$</div>
+                            <span class="asset-name">USD Balance</span>
+                        </div>
+                        <span class="asset-value">42,850,920</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-vnd">₫</div>
+                            <span class="asset-name">VNĐ Account</span>
+                        </div>
+                        <span class="asset-value">385.2B</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-gold">Au</div>
+                            <span class="asset-name">Gold Reserve</span>
+                        </div>
+                        <span class="asset-value">1,240 oz</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-btc">₿</div>
+                            <span class="asset-name">Bitcoin (BTC)</span>
+                        </div>
+                        <span class="asset-value">14.5 BTC</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top: 1.2rem; font-size: 0.75rem; color: var(--status-success); font-weight: 600; display:flex; gap:6px; align-items:center; border-top: 1px dashed var(--border-subtle); padding-top: 10px;">
+                    <i data-lucide="trending-up" size="14"></i>
+                    +8.2% danh mục tổng hợp
+                </div>
+            </div>
+
+            <div
+                style="font-size: 0.7rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase;">
+                Điều Hướng Nghiệp Vụ</div>
+            <a href="index.html" class="side-nav-item"><i data-lucide="layout-dashboard" size="18"></i><span>Tổng Quan
+                    Hệ Thống</span></a>
+            <a href="khachhang_360.html" class="side-nav-item active"><i data-lucide="users" size="18"></i><span>Khách
+                    Hàng 360</span></a>
+            <a href="thanhtoan_quocte.html" class="side-nav-item"><i data-lucide="globe" size="18"></i><span>Thanh Toán
+                    Quốc Tế & CBDC</span></a>
+            <a href="regtech_tuanthu.html" class="side-nav-item"><i data-lucide="shield-check"
+                    size="18"></i><span>RegTech & Tuân Thủ</span></a>
+        </aside>
+
+        <section class="viewport scrollable">
+            <div class="search-bar">
+                <i data-lucide="search" size="20" color="#64748b"></i>
+                <input type="text" class="search-input"
+                    placeholder="Tìm kiếm khách hàng theo tên, CIF, số tài khoản...">
+                <button class="action-btn" style="padding: 4px 12px; font-size: 0.75rem;">Tìm Kiếm</button>
+            </div>
+
+            <div class="grid-360">
+                <!-- Customer Card 1 -->
+                <div class="customer-card">
+                    <div class="cust-header">
+                        <div style="display:flex; gap:12px;">
+                            <div class="cust-avatar">A</div>
+                            <div>
+                                <div class="cust-name">Nguyễn Văn A</div>
+                                <div class="cust-id">CIF: 8829102</div>
+                            </div>
+                        </div>
+                        <div class="cust-score">720 (Good)</div>
+                    </div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:10px;">
+                        <span class="pill" style="background:#e0f2fe; color:#0369a1;">Retail</span>
+                        <span class="pill" style="background:#fef9c3; color:#a16207;">High Value</span>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric">
+                            <div class="metric-lbl">Tổng Tài Sản</div>
+                            <div class="metric-val">12.5 Tỷ VND</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-lbl">Nợ Hiện Tại</div>
+                            <div class="metric-val">2.1 Tỷ VND</div>
+                        </div>
+                    </div>
+                    <div class="ai-insight">
+                        <i data-lucide="sparkles" size="14" style="min-width:14px; margin-top:2px;"></i>
+                        <div>
+                            <strong>Next Best Action:</strong> Tư vấn gói Tiết kiệm lãi suất bậc thang kỳ hạn 12T.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Card 2 -->
+                <div class="customer-card">
+                    <div class="cust-header">
+                        <div style="display:flex; gap:12px;">
+                            <div class="cust-avatar" style="color:var(--quantix-purple)">B</div>
+                            <div>
+                                <div class="cust-name">Tập Đoàn Beta</div>
+                                <div class="cust-id">CIF: 9910231</div>
+                            </div>
+                        </div>
+                        <div class="cust-score" style="background:#fee2e2; color:#b91c1c;">Risk: High</div>
+                    </div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:10px;">
+                        <span class="pill" style="background:#f3e8ff; color:#7e22ce;">Corporate</span>
+                        <span class="pill" style="background:#fee2e2; color:#b91c1c;">Watchlist</span>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric">
+                            <div class="metric-lbl">Hạn Mức Tín Dụng</div>
+                            <div class="metric-val">500 Tỷ VND</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-lbl">Dư Nợ Quá Hạn</div>
+                            <div class="metric-val" style="color:var(--status-danger)">12 Tỷ VND</div>
+                        </div>
+                    </div>
+                    <div class="ai-insight" style="background:#fff1f2; border-color:#fda4af; color:#be123c;">
+                        <i data-lucide="alert-triangle" size="14" style="min-width:14px; margin-top:2px;"></i>
+                        <div>
+                            <strong>Cảnh Báo Sớm:</strong> Dòng tiền giảm 40% so với cùng kỳ. Đề xuất review hạn mức.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Card 3 -->
+                <div class="customer-card">
+                    <div class="cust-header">
+                        <div style="display:flex; gap:12px;">
+                            <div class="cust-avatar">C</div>
+                            <div>
+                                <div class="cust-name">Trần Thị C</div>
+                                <div class="cust-id">CIF: 1102931</div>
+                            </div>
+                        </div>
+                        <div class="cust-score">650 (Fair)</div>
+                    </div>
+                    <div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:10px;">
+                        <span class="pill" style="background:#e0f2fe; color:#0369a1;">Retail</span>
+                        <span class="pill" style="background:#f1f5f9; color:#64748b;">New</span>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric">
+                            <div class="metric-lbl">Casa Balance</div>
+                            <div class="metric-val">850 Tr VND</div>
+                        </div>
+
+                    </div>
+                    <div class="ai-insight">
+                        <i data-lucide="sparkles" size="14" style="min-width:14px; margin-top:2px;"></i>
+                        <div>
+                            <strong>Upsell:</strong> Gợi ý mở thẻ tín dụng Signature hoàn tiền 5%.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

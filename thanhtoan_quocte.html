@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán Quốc Tế & CBDC | Quantix Open Banking</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header-strip">
+        <div class="brand-zone">
+            <div style="background: var(--quantix-accent); padding: 6px; border-radius: 6px; color: white;">
+                <i data-lucide="building-2" size="20"></i>
+            </div>
+            <div class="brand-name"><span class="name-prefix">QUANTIX</span><span class="name-suffix">OPEN
+                    BANKING</span></div>
+            <span class="powered-by">TRUNG TÂM VẬN HÀNH NỘI BỘ v4.2</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Trung Tâm Điều Hành</a>
+            <a href="trangthai_hethong.html" class="nav-link">Trạng Thái Hệ Thống</a>
+            <a href="hosonhanvien.html" class="nav-link">Hồ Sơ Nhân Viên</a>
+        </div>
+    </header>
+
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="balance-card">
+                <div class="balance-label">
+                    <span>Thanh Khoản Tổng Hợp</span>
+                    <div class="status-dot"></div>
+                </div>
+                <div class="balance-amount">58,120,400 USD</div>
+
+                <div class="asset-list">
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-usd">$</div>
+                            <span class="asset-name">USD Balance</span>
+                        </div>
+                        <span class="asset-value">42,850,920</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-vnd">₫</div>
+                            <span class="asset-name">VNĐ Account</span>
+                        </div>
+                        <span class="asset-value">385.2B</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-gold">Au</div>
+                            <span class="asset-name">Gold Reserve</span>
+                        </div>
+                        <span class="asset-value">1,240 oz</span>
+                    </div>
+                    <div class="asset-row">
+                        <div class="asset-info">
+                            <div class="asset-icon-box asset-icon-btc">₿</div>
+                            <span class="asset-name">Bitcoin (BTC)</span>
+                        </div>
+                        <span class="asset-value">14.5 BTC</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top: 1.2rem; font-size: 0.75rem; color: var(--status-success); font-weight: 600; display:flex; gap:6px; align-items:center; border-top: 1px dashed var(--border-subtle); padding-top: 10px;">
+                    <i data-lucide="trending-up" size="14"></i>
+                    +8.2% danh mục tổng hợp
+                </div>
+            </div>
+
+            <div
+                style="font-size: 0.7rem; font-weight: 800; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase;">
+                Điều Hướng Nghiệp Vụ</div>
+            <a href="index.html" class="side-nav-item"><i data-lucide="layout-dashboard" size="18"></i><span>Tổng Quan
+                    Hệ Thống</span></a>
+            <a href="khachhang_360.html" class="side-nav-item"><i data-lucide="users" size="18"></i><span>Khách Hàng
+                    360</span></a>
+            <a href="thanhtoan_quocte.html" class="side-nav-item active"><i data-lucide="globe"
+                    size="18"></i><span>Thanh Toán Quốc Tế & CBDC</span></a>
+            <a href="regtech_tuanthu.html" class="side-nav-item"><i data-lucide="shield-check"
+                    size="18"></i><span>RegTech & Tuân Thủ</span></a>
+        </aside>
+
+        <section class="viewport scrollable">
+            <div class="dashboard-grid">
+                <!-- Map Section -->
+                <div class="card">
+                    <div class="card-title">
+                        <span>Luồng Tiền SWIFT & ISO 20022</span>
+                        <span style="font-size:0.75rem; color:var(--text-secondary); font-weight:normal;">Live
+                            Update</span>
+                    </div>
+                    <div class="map-container">
+                        <div style="text-align:center">
+                            <i data-lucide="globe" size="48" style="margin-bottom:10px; opacity:0.5;"></i>
+                            <div>Bản đồ nhiệt giao dịch toàn cầu đang tải...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FX Rates -->
+                <div class="card">
+                    <div class="card-title">Tỷ Giá Real-time</div>
+                    <table class="fx-table">
+                        <tr>
+                            <td><span class="flag">🇺🇸</span> USD/VND</td>
+                            <td style="text-align:right">25,450</td>
+                            <td style="text-align:right; color:var(--status-success)">+0.15%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="flag">🇪🇺</span> EUR/VND</td>
+                            <td style="text-align:right">27,120</td>
+                            <td style="text-align:right; color:var(--status-danger)">-0.08%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="flag">🇯🇵</span> JPY/VND</td>
+                            <td style="text-align:right">168.5</td>
+                            <td style="text-align:right; color:var(--text-secondary)">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td><span class="flag">🇨🇳</span> CNY/VND</td>
+                            <td style="text-align:right">3,510</td>
+                            <td style="text-align:right; color:var(--status-success)">+0.02%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- CBDC Liquidity -->
+                <div class="card">
+                    <div class="card-title" style="color:var(--quantix-purple)">
+                        <span style="display:flex; align-items:center; gap:8px;"><i data-lucide="wallet" size="18"></i>
+                            e-VND Liquidity (CBDC)</span>
+                    </div>
+                    <div class="cbdc-stats">
+                        <div>
+                            <div class="stat-row">
+                                <span style="font-size:0.85rem;">Central Bank Reserve</span>
+                                <span class="stat-val">850.0B eVND</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width:85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stat-row">
+                                <span style="font-size:0.85rem;">Merchant Settlement Buffer</span>
+                                <span class="stat-val">120.5B eVND</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width:40%; background:var(--quantix-accent)"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert-box">
+                        <i data-lucide="alert-triangle" size="16"></i>
+                        <span>Cảnh báo: Thanh khoản e-VND tại nút Bắc Giang sắp chạm ngưỡng tối thiểu (15%).</span>
+                    </div>
+                </div>
+
+                <!-- Recent Batches -->
+                <div class="card">
+                    <div class="card-title">Clearing Batches</div>
+                    <div style="font-size:0.85rem; color:var(--text-secondary);">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                            <span>Batch #9921 (Morning)</span>
+                            <span style="color:var(--status-success); font-weight:700;">CLEARED</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                            <span>Batch #9922 (Mid-day)</span>
+                            <span style="color:var(--status-warning); font-weight:700;">PROCESSING</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span>Batch #9923 (EOD Forecast)</span>
+                            <span style="color:var(--text-secondary);">PENDING</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
